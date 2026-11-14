@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090d18">
+  <meta name="description" content="Portfolio d'Assia Mouhibi — ingénierie IA, machine learning, data et développement logiciel.">
+  <title>Assia Mouhibi — AI Engineer Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#151326; --surface:#211d35; --surface2:#29223f; --text:#f7f2ff;
+      --muted:#b7adc9; --line:rgba(205,184,231,.16); --accent:#b59ae9;
+      --cyan:#66e4ef; --lime:#f3b98b; --max:1160px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Manrope,system-ui,sans-serif;line-height:1.65;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;z-index:-2;background:
+      radial-gradient(ellipse at 12% 8%,rgba(181,154,233,.22),transparent 36%),
+      radial-gradient(ellipse at 88% 22%,rgba(102,228,239,.12),transparent 31%),
+      radial-gradient(ellipse at 55% 95%,rgba(243,185,139,.07),transparent 35%),
+      linear-gradient(180deg,#151326 0%,#19162d 55%,#131222 100%)}
+    body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.13;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.17'/%3E%3C/svg%3E")}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(var(--max),calc(100% - 48px));margin:auto}
+    .mono,.eyebrow,.tag,.nav-status,.project-index,.mini-label{font-family:"DM Mono",monospace}
+    .navbar{position:sticky;top:0;z-index:20;background:rgba(9,13,24,.78);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-size:1.05rem;font-weight:800;letter-spacing:-.06em}
+    .brand span{color:var(--cyan)}
+    .nav-links{display:flex;align-items:center;gap:30px;color:var(--muted);font-size:.86rem;font-weight:700}
+    .nav-links a:hover{color:var(--text)}
+    .nav-cta{border:1px solid rgba(155,140,255,.5);padding:10px 16px;border-radius:999px;color:#d8d1ff}
+    .hero{padding:108px 0 88px;position:relative}
+    .hero-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:54px;align-items:center}
+    .availability{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(198,243,107,.25);background:rgba(198,243,107,.07);color:#d9f9a0;border-radius:999px;padding:8px 13px;font: .74rem "DM Mono",monospace;letter-spacing:.02em}
+    .pulse{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 5px rgba(198,243,107,.1)}
+    h1{font-size:clamp(3.2rem,7.5vw,6.6rem);line-height:.99;letter-spacing:-.085em;margin:27px 0 25px;font-weight:800}
+    h1 .gradient{background:linear-gradient(100deg,#b5aaff 4%,#75e6e0 85%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-copy{max-width:650px;color:var(--muted);font-size:1.08rem;line-height:1.9}
+    .hero-copy strong{color:#e9edfa;font-weight:700}
+    .actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:34px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:13px 19px;border-radius:12px;font-size:.88rem;font-weight:800;transition:.2s ease;border:1px solid var(--line)}
+    .btn:hover{transform:translateY(-3px)}
+    .btn-primary{background:linear-gradient(110deg,#9b8cff,#6fdbd8);color:#0a1020;border:0;box-shadow:0 12px 35px rgba(123,121,255,.2)}
+    .btn-ghost{background:rgba(255,255,255,.035);color:var(--text)}
+    .hero-card{border:1px solid rgba(177,192,226,.2);background:linear-gradient(145deg,rgba(23,34,57,.9),rgba(13,20,35,.86));border-radius:24px;padding:25px;box-shadow:0 28px 90px rgba(0,0,0,.25);position:relative;overflow:hidden}
+    .hero-card:before{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(127,113,255,.18);filter:blur(50px);right:-90px;top:-100px}
+    .terminal-top{display:flex;gap:7px;border-bottom:1px solid var(--line);padding-bottom:17px;margin-bottom:20px}
+    .terminal-top i{width:8px;height:8px;border-radius:50%;background:#ff7979}
+    .terminal-top i:nth-child(2){background:#f4c76b}.terminal-top i:nth-child(3){background:#72d9b1}
+    .terminal-title{margin-left:auto;color:#8190aa;font: .67rem "DM Mono",monospace}
+    .code-line{font: .82rem/2 "DM Mono",monospace;color:#aebbd0;white-space:nowrap}
+    .code-line .key{color:#9f91ff}.code-line .value{color:#83e4d7}.code-line .comment{color:#687991}
+    .terminal-foot{margin-top:20px;padding-top:15px;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:#8190aa;font:.68rem "DM Mono",monospace}
+
+    .hero-visual{position:relative;min-height:430px;border:1px solid rgba(205,184,231,.22);border-radius:28px;overflow:hidden;background:#282039;box-shadow:0 30px 90px rgba(0,0,0,.34)}
+    .hero-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,16,37,.02) 28%,rgba(20,16,37,.82) 100%);pointer-events:none}
+    .hero-visual img{width:100%;height:100%;min-height:430px;object-fit:cover;object-position:center;display:block;filter:saturate(1.08) contrast(1.02)}
+    .visual-glow{position:absolute;inset:-20%;z-index:1;pointer-events:none;background:radial-gradient(circle at 75% 35%,rgba(102,228,239,.16),transparent 32%),radial-gradient(circle at 15% 80%,rgba(243,185,139,.13),transparent 30%);mix-blend-mode:screen}
+    .visual-overlay{position:absolute;z-index:2;left:25px;right:22px;bottom:24px;display:flex;flex-direction:column;gap:8px}
+    .visual-kicker{font: .67rem "DM Mono",monospace;letter-spacing:.16em;color:#f3c69f}
+    .visual-overlay strong{font-size:1.55rem;line-height:1.15;letter-spacing:-.05em;text-shadow:0 2px 20px rgba(0,0,0,.35)}
+    .visual-line{display:flex;align-items:center;gap:9px;font:.65rem "DM Mono",monospace;letter-spacing:.08em;color:#d7d2e7}
+    .visual-line i{width:7px;height:7px;border-radius:50%;background:#66e4ef;box-shadow:0 0 12px #66e4ef}
+    .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:72px}
+    .metric{padding:18px 20px;border:1px solid var(--line);background:rgba(255,255,255,.025);border-radius:15px}
+    .metric strong{display:block;font-size:1.8rem;letter-spacing:-.06em}
+    .metric span{display:block;color:var(--muted);font-size:.74rem;margin-top:2px}
+    section{padding:92px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:34px}
+    .eyebrow{color:var(--cyan);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 10px}
+    h2{font-size:clamp(2rem,4vw,3.2rem);line-height:1.08;letter-spacing:-.07em;margin:0;font-weight:800}
+    .section-note{max-width:390px;color:var(--muted);font-size:.88rem;margin:0}
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:17px}
+    .project{position:relative;border:1px solid var(--line);background:linear-gradient(145deg,rgba(20,30,49,.92),rgba(13,20,34,.92));border-radius:20px;padding:26px;min-height:290px;overflow:hidden;transition:.25s}
+    .project:hover{border-color:rgba(155,140,255,.55);transform:translateY(-4px);background:linear-gradient(145deg,rgba(28,39,65,.98),rgba(13,20,34,.96))}
+    .project:after{content:"";position:absolute;width:170px;height:170px;right:-100px;bottom:-100px;border-radius:50%;background:rgba(105,226,223,.09);filter:blur(25px)}
+    .project-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+    .project-index{font-size:.72rem;color:var(--cyan)}
+    .project-type{font:.66rem "DM Mono",monospace;color:#a9b4c9;border:1px solid var(--line);padding:6px 9px;border-radius:999px}
+    .project h3{font-size:1.28rem;letter-spacing:-.045em;line-height:1.25;margin:0 0 9px}
+    .project p{color:var(--muted);font-size:.86rem;margin:0 0 18px;max-width:570px}
+    .tags{display:flex;flex-wrap:wrap;gap:7px}
+    .tag{font-size:.66rem;color:#c8c1ff;background:rgba(155,140,255,.1);border:1px solid rgba(155,140,255,.14);padding:5px 9px;border-radius:7px}
+    .project-link{display:inline-block;margin-top:20px;color:var(--cyan);font-size:.8rem;font-weight:800}
+    .project-link:hover{color:#fff}
+    .project-wide{grid-column:span 2;min-height:240px}
+    .wide-layout{display:grid;grid-template-columns:1fr auto;gap:35px;align-items:center}
+    .score-box{display:flex;gap:12px}
+    .score{min-width:94px;padding:14px;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.025)}
+    .score b{display:block;font-size:1.45rem;letter-spacing:-.05em}
+    .score span{color:var(--muted);font:.63rem "DM Mono",monospace}
+    .skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .skill-card{border:1px solid var(--line);background:rgba(255,255,255,.025);border-radius:17px;padding:22px}
+    .skill-icon{width:38px;height:38px;border-radius:11px;background:rgba(105,226,223,.1);display:grid;place-items:center;color:var(--cyan);font-size:1.1rem;margin-bottom:20px}
+    .skill-card h3{font-size:.98rem;margin:0 0 12px}
+    .skill-card p{font-size:.78rem;color:var(--muted);line-height:1.9;margin:0}
+    .journey{display:grid;grid-template-columns:1fr 1fr;gap:55px}
+    .timeline{border-left:1px solid rgba(155,140,255,.35);margin-left:7px}
+    .timeline-item{position:relative;padding:0 0 28px 25px}
+    .timeline-item:before{content:"";position:absolute;width:9px;height:9px;left:-5px;top:8px;background:var(--accent);border-radius:50%;box-shadow:0 0 0 5px rgba(155,140,255,.1)}
+    .timeline-item h3{font-size:.98rem;margin:0 0 4px}
+    .timeline-item .date{font:.7rem "DM Mono",monospace;color:var(--cyan)}
+    .timeline-item p{font-size:.82rem;color:var(--muted);margin:7px 0 0}
+    .about-panel{padding:28px;border-radius:20px;border:1px solid var(--line);background:linear-gradient(140deg,rgba(155,140,255,.09),rgba(105,226,223,.04))}
+    .about-panel p{color:var(--muted);font-size:.9rem;line-height:1.9;margin:0 0 17px}
+    .about-panel p:last-child{margin-bottom:0}
+    .contact{padding:0 0 85px}
+    .contact-panel{position:relative;overflow:hidden;text-align:center;padding:65px 25px;border-radius:26px;border:1px solid rgba(155,140,255,.25);background:radial-gradient(ellipse at 50% 120%,rgba(105,226,223,.16),transparent 55%),linear-gradient(130deg,#171b35,#111b2b)}
+    .contact-panel h2{max-width:720px;margin:0 auto 15px}
+    .contact-panel p{color:var(--muted);max-width:550px;margin:0 auto 28px;font-size:.9rem}
+    .contact-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+    footer{border-top:1px solid var(--line);padding:24px 0 32px;color:#718099;font-size:.72rem}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .socials{display:flex;gap:20px}
+    .socials a:hover{color:var(--cyan)}
+    @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-visual{max-width:620px;min-height:360px}.hero-visual img{min-height:360px}.skills-grid{grid-template-columns:repeat(2,1fr)}.journey{gap:25px}}
+    @media(max-width:640px){.hero-visual,.hero-visual img{min-height:300px}.visual-overlay strong{font-size:1.3rem}.container{width:min(100% - 32px,var(--max))}.nav-inner{height:66px}.nav-links{gap:13px;font-size:.72rem}.nav-links a:nth-child(3){display:none}.nav-cta{padding:8px 11px}.hero{padding:75px 0 55px}h1{font-size:clamp(3rem,15vw,4.7rem)}.hero-copy{font-size:.96rem}.metrics{grid-template-columns:repeat(2,1fr);margin-top:48px}.metric strong{font-size:1.55rem}section{padding:70px 0}.section-head{display:block}.section-note{margin-top:15px}.projects{grid-template-columns:1fr}.project-wide{grid-column:span 1}.wide-layout{grid-template-columns:1fr}.score-box{flex-wrap:wrap}.skills-grid{grid-template-columns:1fr 1fr}.journey{grid-template-columns:1fr}.contact-panel{padding:48px 20px}.code-line{font-size:.68rem}.terminal-title{font-size:.58rem}}
+    @media(max-width:390px){.nav-links{gap:9px}.nav-links a{font-size:.67rem}.nav-cta{display:none}.skills-grid{grid-template-columns:1fr}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="#home">ASSIA<span>.</span></a>
+      <div class="nav-links">
+        <a href="#projects">Projets</a><a href="#expertise">Expertise</a><a href="#journey">Parcours</a><a class="nav-cta" href="#contact">Me contacter ↗</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="availability"><span class="pulse"></span> DISPONIBLE POUR UN PFE · 2027</div>
+          <h1>Building<br>intelligence.<br><span class="gradient">Engineering impact.</span></h1>
+          <p class="hero-copy">Je suis <strong>Assia Mouhibi</strong>, élève ingénieure en Informatique et Intelligence Artificielle à l’ENSAM Casablanca. Je conçois des solutions à la croisée de <strong>l’IA, de la data et du développement logiciel</strong> — de l’expérimentation jusqu’à l’industrialisation.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#projects">Explorer mes projets <span>↘</span></a>
+            <a class="btn btn-ghost" href="https://github.com/assia642" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a class="btn btn-ghost" href="https://linkedin.com/in/assia-mouhibi" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          </div>
+        </div>
+        <aside class="hero-visual" aria-label="Illustration intelligence artificielle">
+          <div class="visual-glow"></div>
+          <img src="assets/ai-hero1.jpg" alt="Illustration futuriste d’un visage artificiel composé de circuits électroniques">
+          <div class="visual-overlay">
+            <span class="visual-kicker">EXPLORING THE FUTURE</span>
+            <strong>Human ideas.<br>Artificial intelligence.</strong>
+            <span class="visual-line"><i></i> AI · DATA · ENGINEERING</span>
+          </div>
+        </aside>
+      </div>
+  </header>
+
+  <main>
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div><p class="eyebrow">01 / Selected work</p><h2>Des idées transformées<br>en réalisations.</h2></div>
+          <p class="section-note">Une sélection de projets en intelligence artificielle, machine learning et développement d’applications.</p>
+        </div>
+        <div class="projects">
+          <article class="project project-wide">
+            <div class="project-top"><span class="project-index">01 — FEATURED PROJECT</span><span class="project-type">Federated Learning · 2026</span></div>
+            <div class="wide-layout">
+              <div>
+                <h3>Apprentissage fédéré pour la détection de fraude</h3>
+                <p>Simulation de quatre banques entraînant un modèle commun sans partager leurs données. Le système repose sur des environnements isolés, des mécanismes de protection des données et une surveillance des comportements clients.</p>
+                <div class="tags"><span class="tag">Flower</span><span class="tag">PyTorch</span><span class="tag">Docker Compose</span><span class="tag">TLS mutuel</span><span class="tag">Confidentialité</span></div>
+                <a class="project-link" href="https://github.com/assia624/federated_learning_fraud_detection" target="_blank" rel="noreferrer">Explorer le code sur GitHub ↗</a>
+              </div>
+              <div class="score-box">
+                <div class="score"><b>0.822</b><span>F1 FÉDÉRÉ</span></div>
+                <div class="score"><b>0.826</b><span>F1 CENTRALISÉ</span></div>
+                <div class="score"><b>0.963</b><span>AUC</span></div>
+              </div>
+            </div>
+          </article>
+          <article class="project">
+            <div class="project-top"><span class="project-index">02</span><span class="project-type">Generative AI · Internship</span></div>
+            <h3>Transaction Insights — Assistant IA</h3>
+            <p>Développement chez HPS d’un assistant LLM permettant aux utilisateurs métier d’interroger des données de paiement en langage naturel, avec génération SQL et contrôles de sécurité.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Gemini</span><span class="tag">PostgreSQL</span><span class="tag">Text-to-SQL</span></div>
+          </article>
+          <article class="project">
+            <div class="project-top"><span class="project-index">03</span><span class="project-type">Reinforcement Learning</span></div>
+            <h3>Réanalyse de trajectoires pour le RL hors ligne</h3>
+            <p>Exploration de la planification par Monte Carlo Tree Search et de l’augmentation de données par VAE pour améliorer l’apprentissage de politiques à partir de données hors ligne.</p>
+            <div class="tags"><span class="tag">Vine</span><span class="tag">MCTS</span><span class="tag">VAE</span><span class="tag">Offline RL</span></div>
+            <a class="project-link" href="https://github.com/assia624/offline_rl_trajectory_reanalysis" target="_blank" rel="noreferrer">Voir sur GitHub ↗</a>
+          </article>
+          <article class="project">
+            <div class="project-top"><span class="project-index">04</span><span class="project-type">Machine Learning</span></div>
+            <h3>Prédiction du diabète</h3>
+            <p>Entraînement de modèles de machine learning sur des données de santé et création d’une interface interactive pour explorer les prédictions.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">Streamlit</span></div>
+            <a class="project-link" href="https://github.com/assia624/diabetes-prediction" target="_blank" rel="noreferrer">Voir sur GitHub ↗</a>
+          </article>
+          <article class="project">
+            <div class="project-top"><span class="project-index">05</span><span class="project-type">Full Stack Development</span></div>
+            <h3>MovieApp</h3>
+            <p>Application web de découverte de films avec recherche et filtres, API REST développée avec Django et interface React responsive.</p>
+            <div class="tags"><span class="tag">React</span><span class="tag">Django</span><span class="tag">REST API</span></div>
+            <a class="project-link" href="https://github.com/assia624/movieappprjt" target="_blank" rel="noreferrer">Voir sur GitHub ↗</a>
+          </article>
+          <article class="project">
+            <div class="project-top"><span class="project-index">06</span><span class="project-type">Web Development</span></div>
+            <h3>Application e-commerce</h3>
+            <p>Développement d’une plateforme e-commerce avec catalogue produits, panier, authentification et gestion des commandes selon l’architecture MVC.</p>
+            <div class="tags"><span class="tag">Laravel</span><span class="tag">PHP</span><span class="tag">MVC</span></div>
+            <a class="project-link" href="https://github.com/assia624/DecoM" target="_blank" rel="noreferrer">Voir sur GitHub ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="expertise">
+      <div class="container">
+        <div class="section-head">
+          <div><p class="eyebrow">02 / Toolkit</p><h2>Mon environnement<br>technique.</h2></div>
+          <p class="section-note">Des fondations en développement et data, avec un intérêt particulier pour la conception de systèmes d’IA robustes.</p>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-card"><div class="skill-icon">✳</div><h3>AI & Machine Learning</h3><p>Python<br>PyTorch · TensorFlow<br>Scikit-learn · LLM<br>Reinforcement Learning</p></article>
+          <article class="skill-card"><div class="skill-icon">⌘</div><h3>Data Engineering</h3><p>SQL · PostgreSQL<br>Pandas · ETL<br>MongoDB<br>Analyse et préparation des données</p></article>
+          <article class="skill-card"><div class="skill-icon">◈</div><h3>Software Engineering</h3><p>Java · Spring Boot<br>Django · Laravel · React<br>API REST<br>Architecture MVC</p></article>
+          <article class="skill-card"><div class="skill-icon">↗</div><h3>Cloud & Deployment</h3><p>Docker · Docker Compose<br>AWS Foundations<br>Git · TLS mutuel<br>Déploiement et documentation</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="journey">
+      <div class="container">
+        <div class="section-head">
+          <div><p class="eyebrow">03 / Background</p><h2>Parcours & expériences.</h2></div>
+        </div>
+        <div class="journey">
+          <div class="timeline">
+            <div class="timeline-item"><span class="date">JUIL. — AOÛT 2026</span><h3>Stagiaire Ingénieure IA · HPS</h3><p>Conception d’un assistant LLM pour l’exploration de données de paiement en langage naturel.</p></div>
+            <div class="timeline-item"><span class="date">JUIL. — AOÛT 2024</span><h3>Stagiaire Développement logiciel · Castle IT</h3><p>Développement d’une application e-commerce avec Laravel et architecture MVC.</p></div>
+            <div class="timeline-item"><span class="date">2024 — 2026</span><h3>Cycle ingénieur · ENSAM Casablanca</h3><p>Informatique et Intelligence Artificielle.</p></div>
+            <div class="timeline-item"><span class="date">2022 — 2024</span><h3>Classes préparatoires · ENSAM</h3><p>Formation scientifique et bases de l’ingénierie.</p></div>
+          </div>
+          <div>
+            <div class="about-panel">
+              <p class="eyebrow">A little about me</p>
+              <p>J’aime comprendre un problème dans sa globalité, expérimenter différentes approches et transformer une idée technique en une solution utile et exploitable.</p>
+              <p>Mon parcours associe intelligence artificielle, ingénierie logicielle et travail en équipe. Je cherche aujourd’hui à approfondir cette approche sur des projets concrets à fort impact.</p>
+              <p><strong style="color:#f3f6ff">Langues</strong><br>Français — C1 · Anglais — C1 · Arabe — langue maternelle</p>
+              <p><strong style="color:#f3f6ff">Engagement</strong><br>Responsable culturelle puis graphiste — Sawaid Al Amal · Membre active — GDG ENSAM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <p class="eyebrow">04 / Get in touch</p>
+          <h2>Et si nous construisions<br>quelque chose d’utile ?</h2>
+          <p>Je suis à la recherche d’un stage PFE de 6 mois à partir de début 2027 dans les domaines de la data, de l’IA ou du développement logiciel.</p>
+          <div class="contact-links">
+            <a class="btn btn-primary" href="mailto:assiamouhibi4@gmail.com">Discutons ensemble ↗</a>
+            <a class="btn btn-ghost" href="https://linkedin.com/in/assia-mouhibi" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+            <a class="btn btn-ghost" href="https://github.com/assia642" target="_blank" rel="noreferrer">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-inner"><span>© 2026 Assia Mouhibi · Designed with intention.</span><span class="socials"><a href="#home">Retour en haut ↑</a><a href="mailto:assiamouhibi4@gmail.com">Email</a></span></div></footer>
+</body>
+</html>
